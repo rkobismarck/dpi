@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+    data_storage:
+        image: postgres
+        container_name: artemisa_db
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=admin123
+            - POSTGRES_DB=artemisaDB
+        ports: 
+            - "5432:5432"
+        volumes:
+            - ./data-sources/artemisa.sql:/docker-entrypoint-initdb.d/init.sql
+        
